@@ -9,6 +9,7 @@ class ofApp : public ofBaseApp{
     ofSoundStream soundStream;
     KaraokePlayer karaokePlayer;
     ofImage cdgScreen;
+    ofImage mirrorCdgScreen; //meant to be a completely mirrored version of what we see on the main screen.
     vector <float> audioBuffer;
     string currentTrack;
     int cdgScreenX;

@@ -5,6 +5,7 @@ void ofApp::setup(){
     ofSetLogLevel(OF_LOG_VERBOSE);
     ofSetFrameRate(60.0f);
     ofEnableSmoothing();
+    ofSetWindowTitle("Johnson Karaoke v7.0");
     
     TCP.setup(11999);
     TCP.setMessageDelimiter("\n");
@@ -17,6 +18,8 @@ void ofApp::setup(){
     cdgScreenX = 0;
     cdgScreenY = 0;
     cdgScreenRotation = 0;
+    
+    ofBackground(0, 0, 0);
     
     //Turning this to false makes it not refresh the background (on by default)
     //ofSetBackgroundAuto(false);
@@ -36,9 +39,10 @@ void ofApp::setup(){
     //TODO: Figure out to route audio to headphones and not appletv
     //TODO: Use keywords from song track name to show random images from the web in the background
     ofSoundStreamListDevices();
+    
     // Based on the output above sets it to built in output (we don't want audio going to airplay TV)
     // TODO: figure out how to not hardcode this number.
-    soundStream.setDeviceID(2);
+    //soundStream.setDeviceID(2);
     
     // The app used to start automatically
     //karaokePlayer.open("/Users/deckarep/Desktop/karaoke4go/cdg/Prince - Beautiful Ones, The");
@@ -52,6 +56,9 @@ void ofApp::update(){
     
     cdgScreen.setFromPixels(karaokePlayer.pixels(), CDG_WIDTH, CDG_HEIGHT, OF_IMAGE_COLOR_ALPHA);
     cdgScreen.update();
+    
+    mirrorCdgScreen.setFromPixels(karaokePlayer.pixels(), CDG_WIDTH, CDG_HEIGHT, OF_IMAGE_COLOR_ALPHA);
+    mirrorCdgScreen.update();
     
     //This for example scrolls the image to the right
     //cdgScreenX+=1;
@@ -67,11 +74,11 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     // Cool gradient effect (must be called in draw() in this order
-    ofColor colorOne;
-    ofColor colorTwo;
-    colorOne.set (0, 255, 0);
-    colorTwo.set (0, 0, 255);
-    ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_CIRCULAR);
+//    ofColor colorOne;
+//    ofColor colorTwo;
+//    colorOne.set (0, 255, 0);
+//    colorTwo.set (0, 0, 255);
+//    ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_CIRCULAR);
     // End gradient effect
 
     // Blending MODES!!! YAY!
@@ -79,7 +86,7 @@ void ofApp::draw(){
     //ofEnableBlendMode(OF_BLENDMODE_ADD);
     
     // This works
-    //cdgScreen.mirror(false, true);
+    mirrorCdgScreen.mirror(true,true);
 
     
     // This affects the cdgImage in terms of colors and alpha (255,255,255,255) shows the colors correctly
@@ -87,13 +94,18 @@ void ofApp::draw(){
     
     // all this commented out shit demonstrates how to do rotation, scaling of the screen and stuff
     ofPushMatrix();
-    // This works, it skews the screen and stuff
-    ofRotateX(20);
-    // ofTranslate(100, 100);
-    ofScale(2, 2);
-    // ofRotateZ(cdgScreenRotation);
-    cdgScreen.draw(100 + cdgScreenX,10);
+        // This works, it skews the screen and stuff
+        ofRotateX(-10);
+        // ofTranslate(100, 100);
+        ofScale(2, 2);
+        // ofRotateZ(cdgScreenRotation);
+        cdgScreen.draw(100 + cdgScreenX,10);
+        ofSetColor(255,255,255,140);
+        mirrorCdgScreen.draw(100 + cdgScreenX, 216);
+        ofSetColor(255,255,255,255);
     ofPopMatrix();
+    
+    
     
     // Karaoke player
     karaokePlayer.draw();
