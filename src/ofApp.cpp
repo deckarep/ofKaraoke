@@ -74,11 +74,12 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     // Cool gradient effect (must be called in draw() in this order
-//    ofColor colorOne;
-//    ofColor colorTwo;
-//    colorOne.set (0, 255, 0);
-//    colorTwo.set (0, 0, 255);
-//    ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_CIRCULAR);
+    ofColor colorOne;
+    ofColor colorTwo;
+    //colorOne.set (10, 73, 90);
+    colorOne.set(44, 141, 173);
+    colorTwo.set (0, 0, 0);
+    ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_CIRCULAR);
     // End gradient effect
 
     // Blending MODES!!! YAY!
@@ -100,12 +101,10 @@ void ofApp::draw(){
         ofScale(2, 2);
         // ofRotateZ(cdgScreenRotation);
         cdgScreen.draw(100 + cdgScreenX,10);
-        ofSetColor(255,255,255,140);
+        ofSetColor(255,255,255,100);
         mirrorCdgScreen.draw(100 + cdgScreenX, 216);
         ofSetColor(255,255,255,255);
     ofPopMatrix();
-    
-    
     
     // Karaoke player
     karaokePlayer.draw();
