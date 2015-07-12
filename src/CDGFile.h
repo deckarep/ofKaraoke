@@ -1,11 +1,3 @@
-//
-//  CDGFile.h
-//  robotKaraoke
-//
-//  Created by Szymczykowski, Pawel on 6/14/14.
-//
-//
-
 #ifndef __robotKaraoke__CDGFile__
 #define __robotKaraoke__CDGFile__
 

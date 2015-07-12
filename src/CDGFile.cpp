@@ -1,11 +1,3 @@
-//
-//  CDGFile.cpp
-//  robotKaraoke
-//
-//  Created by Szymczykowski, Pawel on 6/14/14.
-//
-//
-
 #include "CDGFile.h"
 
 

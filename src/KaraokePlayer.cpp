@@ -1,11 +1,3 @@
-//
-//  KaraokePlayer.cpp
-//  robotKaraoke
-//
-//  Created by Szymczykowski, Pawel on 6/16/14.
-//
-//
-
 #include "KaraokePlayer.h"
 
 KaraokePlayer::KaraokePlayer() {

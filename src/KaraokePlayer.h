@@ -1,11 +1,3 @@
-//
-//  KaraokePlayer.h
-//  robotKaraoke
-//
-//  Created by Szymczykowski, Pawel on 6/16/14.
-//
-//
-
 #ifndef __robotKaraoke__KaraokePlayer__
 #define __robotKaraoke__KaraokePlayer__
 
