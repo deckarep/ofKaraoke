@@ -6,6 +6,7 @@ void ofApp::setup(){
     ofSetFrameRate(60.0f);
     ofEnableSmoothing();
     ofSetWindowTitle("Johnson Karaoke v7.0");
+    ofSetCircleResolution(30);
     
     TCP.setup(11999);
     TCP.setMessageDelimiter("\n");
